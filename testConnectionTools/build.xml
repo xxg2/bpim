@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="TestConnection" default="build-test-target" basedir=".">
+	<property file="build.properties"/>
+	<path id="project.class.path">
+		<fileset dir="lib" includes="*.jar" >
+		</fileset>
+	</path>
+	<tstamp>
+		<format property="NOW_CN" pattern="yyyy.MM.dd.HH.mm" unit="hour" locale="zh"/>
+	</tstamp>
+	<property name="testdir" value="${test-target-dir}_${NOW_CN}">
+	</property>
+
+	<target name="init">
+		<tstamp/>
+		<mkdir dir="${testdir}"/>
+		<mkdir dir="${testdir}/conf"/>
+		<mkdir dir="${testdir}/log"/>
+	</target>
+
+	<target name="compile">
+		<mkdir dir="bin"/>
+		<delete dir="deploy"/>
+		<mkdir dir="deploy"/>
+
+		<javac srcdir="src"
+		   		 compiler="javac1.6"
+		         destdir="bin"
+		         classpathref="project.class.path"
+		         debug="on"
+			/>
+		<jar destfile="deploy/testConnection.jar" >
+			<fileset dir="bin"/>
+		</jar>
+	</target>
+
+	<target name="build-test-target" depends="init,compile">
+		<copy todir="${testdir}">
+			<fileset dir="./">
+				<include name="lib/**"/>
+				<include name="tools/**"/>
+				<exclude name="**/.svn/**"/>
+				<exclude name="**/*.scc"/>
+			</fileset>
+			<fileset dir="scripts">
+				<include name="install.bat"/>
+				<include name="install64.bat"/>
+				<include name="uninstall.bat"/>
+				<include name="start.bat"/>
+			</fileset>
+		</copy>
+		<copy file="conf/log4j.properties" todir="${testdir}/conf" />
+		<copy file="conf/testConnection.properties" tofile="${testdir}/conf/testConnection.properties" />
+		<copy file="deploy/TestConnection.jar" todir="${testdir}/lib" />
+
+		<echo message="generate ${testdir} with ${this_comment}">
+		</echo>
+	</target>
+	<target name="build-the-deploy" depends="init,compile">
+		<delete dir="${test-target-dir}"/>
+		<mkdir dir="${test-target-dir}"/>
+		<mkdir dir="${test-target-dir}"/>
+		<mkdir dir="${test-target-dir}/conf"/>
+		<mkdir dir="${test-target-dir}/log"/>
+		<copy todir="${test-target-dir}">
+			<fileset dir="./">
+				<include name="lib/**"/>
+				<include name="tools/**"/>
+				<exclude name="**/.svn/**"/>
+				<exclude name="**/*.scc"/>
+			</fileset>
+			<fileset dir="scripts">
+				<include name="install.bat"/>
+				<include name="install64.bat"/>
+				<include name="uninstall.bat"/>
+				<include name="start.bat"/>
+			</fileset>
+		</copy>
+		<copy file="conf/log4j.properties" todir="${testdir}/conf" />
+		<copy file="conf/testConnection.properties" tofile="${testdir}/conf/testConnection.properties" />
+		<copy file="deploy/TestConnection.jar" todir="${testdir}/lib" />
+
+		<echo message="generate ${testdir} with ${this_comment}">
+		</echo>
+	</target>
+
+	<target name="clean" description="delete the built files">
+		<!-- if we have some tasks here for the windows services stop ... -->
+		<delete dir="${testdir}">
+		</delete>
+	</target>
+
+</project>
