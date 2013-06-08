@@ -1,0 +1,553 @@
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	color: #5f5f5f;
+	font: normal 12px/1.8em Arial, Helvetica, sans-serif;
+}
+
+<!--
+text-shadow: #5f5f5f   -1px   1px   2px  ; -->html,.main {
+	padding: 0;
+	margin: 0;
+	background-color: #fff;
+}
+
+.clr {
+	clear: both;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	font-size: 0px;
+	line-height: 0px;
+}
+
+h1 {
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	font: bold 40px/1.2em Arial, Helvetica, sans-serif;
+	text-align: center;
+	letter-spacing: -2px;
+}
+
+h1 a,h1 a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+h1 small {
+	display: block;
+	font: normal 13px/1.2em Arial, Helvetica, sans-serif;
+	letter-spacing: normal;
+	padding: 8px 0;
+}
+
+h2 {
+	font: bold 24px Arial, Helvetica, sans-serif;
+	color: #5f5f5f;
+	margin: 8px 0;
+}
+
+h4 {
+	margin-bottom: 3px;
+}
+
+p {
+	margin: 8px 0;
+	padding: 0 0 8px 0;
+	font: normal 12px/1.8em Arial, Helvetica, sans-serif;
+}
+
+a {
+	cursor: pointer;
+	color: #0588c6;
+	text-decoration: underline;
+}
+
+textarea {
+	margin-top: 20px;
+	color: #5f5f5f;
+	width: 550px;
+	height: 200px;
+	font: normal 12px/1.8em Arial, Helvetica, sans-serif;
+}
+
+select {
+	color: #5f5f5f;
+	text-align: center;
+	font: normal 12px/1.8em Arial, Helvetica, sans-serif;
+}
+
+input {
+	
+}
+
+.header,.content,.fbg,.footer,form,ol,ul,ol li,.content .mainbar,.content .sidebar
+	{
+	margin: 0;
+	padding: 0;
+}
+
+.content_resize,.header_resize,.fbg_resize,.footer_resize {
+	margin: 0 auto;
+	padding: 0 40px;
+	width: 890px;
+}
+
+.footer_resize {
+	text-align: center;
+}
+
+.adviceDiv {
+	padding-top:30px;
+	width: 500px;
+	height: 140px;
+}
+
+
+.adviceDiv textarea {
+	width: 500px;
+	height: 100px;
+	margin-top: 4px;
+}
+
+.adviceDiv button {
+	float: right;
+}
+
+.header_resize,.hbg_resize {
+	margin: 0 auto;
+	padding: 0;
+	width: 970px;
+}
+
+.content_resize,.fbg_resize {
+	padding: 24px 40px;
+}
+
+/* header */
+.header {
+	height: 150px;
+	background: url(../images/header_bg.gif) repeat-x top;
+}
+
+.header .nav_menu ul {
+	float: right;
+	width: auto;
+	list-style: none;
+	height: 53px;
+	background: url(../images/menu.gif) repeat-x top;
+}
+
+.header .nav_menu ul li {
+	margin: 0 2px;
+	float: left;
+	height: 53px;
+}
+
+.header .nav_menu ul li a {
+	display: block;
+	margin: 0;
+	padding: 14px 8px;
+	color: #5f5f5f;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.header .nav_menu ul li a:hover,.header .nav_menu ul li.active a {
+	color: #47add9;
+	background: url(../images/menu_a.gif) repeat-x top;
+}
+
+.header img.hbgimg {
+	margin: 0;
+	padding: 2px 2px 0 0;
+}
+
+.header .logo {
+	background: url(../images/hbg_img.png) no-repeat center 24px;
+	height: 80px;
+	padding-top: 0px;
+}
+
+/* content */
+.content {
+	background: url(../images/content_bg.gif) repeat-x top;
+}
+
+.content .mainbar {
+	float: right;
+	width: 630px;
+	min-height: 455px;
+}
+
+
+.content .mainbar .article img {
+	border: 1px solid #dedede;
+	padding: 3px;
+}
+
+.content .mainbar .article img.ilf {
+	float: left;
+	margin: 0 16px 8px 0;
+}
+
+.content .mainbar .article,.content .sidebar .gadget {
+	margin: 0;
+	padding: 0 0 16px 0;
+}
+
+.content .sidebar {
+	float: left;
+	width: 236px;
+}
+
+.button {
+	cursor: pointer;
+	height: 25px;
+	margin-right: 4px;
+	display: block;
+	text-align: center;
+	background: url(../images/a_bg.gif) repeat-x center center;
+	text-decoration: none;
+	color: #5F5F5F;
+	font: normal 12px/1.8em Arial, Helvetica, sans-serif;
+}
+
+ul.sb_menu,ul.ex_menu {
+	list-style: none;
+	color: #959595;
+	height: 70px;
+}
+
+ul.sb_menu li,ul.ex_menu li {
+	margin: 0;
+}
+
+ul.sb_menu li {
+	float: left;
+}
+
+ul.ex_menu li {
+	padding: 4px 0 8px 4px;
+}
+
+ul.sb_menu li a,ul.ex_menu li a {
+	color: #5f5f5f;
+	text-decoration: none;
+	padding-left: 8px;
+}
+
+ul.sb_menu li a:hover,ul.ex_menu li a:hover {
+	color: #47add9;
+	font-weight: bold;
+}
+
+a:hover {
+	color: #47add9;
+	font-weight: bold;
+}
+
+/* subpages */
+.content .mainbar .comment {
+	margin: 0;
+	padding: 16px 0 0 0;
+}
+
+.content .mainbar .comment img.userpic {
+	border: 1px solid #dedede;
+	margin: 10px 16px 0 0;
+	padding: 0;
+	float: left;
+}
+
+/* fbg */
+.fbg {
+	background-color: #0588c6;
+	color: #fff;
+}
+
+.fbg h2 {
+	color: #fff;
+}
+
+.fbg a {
+	color: #fff;
+}
+
+.fbg img {
+	padding: 5px;
+	border: 1px solid #0476ac;
+	background-color: #4ba9d6;
+}
+
+.fbg .col {
+	margin: 0;
+	float: left;
+}
+
+.fbg .c1 {
+	padding: 0 16px 0 0;
+	width: 326px;
+}
+
+.fbg .c2 {
+	padding: 0 16px;
+	width: 296px;
+}
+
+.fbg .c3 {
+	padding: 0 0 0 16px;
+	width: 200px;
+}
+
+.fbg .c1 img {
+	margin: 4px;
+}
+
+.fbg ul.sb_menu li a {
+	color: #fff;
+	background: url(../images/li_w.gif) no-repeat left center;
+}
+
+.fbg ul.sb_menu li a:hover {
+	color: #fff;
+	font-weight: bold;
+}
+
+/* footer */
+.footer p.lf {
+	padding: 16px 0;
+	float: left;
+	width: auto;
+}
+
+ul.fmenu {
+	padding-top: 20px;
+	list-style: none;
+	float: right;
+	width: auto;
+}
+
+ul.fmenu li {
+	margin: 0 2px;
+	float: left;
+}
+
+ul.fmenu li a {
+	display: block;
+	margin: 0;
+	padding: 4px 8px;
+	color: #5f5f5f;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+ul.fmenu li a:hover,ul.fmenu li.active a {
+	color: #0588c6;
+}
+
+/* form */
+ol {
+	list-style: none;
+}
+
+ol li {
+	display: block;
+	clear: both;
+}
+
+ol li label {
+	display: block;
+	margin: 0;
+	padding: 16px 0 0 0;
+}
+
+ol li input.text {
+	width: 480px;
+	border: 1px solid #c0c0c0;
+	margin: 2px 0;
+	padding: 5px 2px;
+	height: 16px;
+	background: #fff;
+}
+
+ol li textarea {
+	width: 480px;
+	border: 1px solid #c0c0c0;
+	margin: 2px 0;
+	padding: 2px;
+	background: #fff;
+}
+
+ol li .send {
+	margin: 16px 0 0 0;
+}
+
+.width50Li {
+	float: left;
+	width: 50px;
+}
+
+.width100Li {
+	float: left;
+	width: 100px;
+}
+
+.width150Li {
+	float: left;
+	width: 150px;
+}
+
+.width200Li {
+	float: left;
+	width: 200px;
+}
+
+.width250Li {
+	float: left;
+	width: 250px;
+}
+
+.width300Li {
+	float: left;
+	width: 300px;
+}
+
+.width350Li {
+	float: left;
+	width: 350px;
+}
+
+.width400Li {
+	float: left;
+	width: 400px;
+}
+
+.width450Li {
+	float: left;
+	width: 450px;
+}
+
+.width600Li {
+	float: left;
+	width: 600px;
+}
+
+.width50Input {
+	float: left;
+	width: 50px;
+}
+
+.width100Input {
+	float: left;
+	width: 100px;
+}
+
+.width150Input {
+	float: left;
+	width: 150px;
+}
+
+.width200Input {
+	float: left;
+	width: 200px;
+}
+
+.width250Input {
+	float: left;
+	width: 250px;
+}
+
+.width300Input {
+	float: left;
+	width: 300px;
+}
+
+.width350Input {
+	float: left;
+	width: 350px;
+}
+
+.width400Input {
+	float: left;
+	width: 400px;
+}
+
+.width500Input {
+	float: left;
+	width: 500px;
+}
+
+.width1Lb {
+	float: left;
+	width: 50px;
+}
+
+.width2Lb {
+	float: left;
+	width: 30px;
+}
+
+.width3Lb {
+	float: left;
+	width: 42px;
+}
+
+.width4Lb {
+	float: left;
+	width: 54px;
+}
+
+.width5Lb {
+	float: left;
+	width: 66px;
+}
+
+.width6Lb {
+	float: left;
+	width: 78px;
+}
+
+.width7Lb {
+	float: left;
+	width: 86px;
+}
+
+.mediumRightButton {
+	cursor: pointer;
+	height: 25px;
+	margin-right: 4px;
+	display: block;
+	float: right;
+	text-align: center;
+	background: url(../images/a_bg.gif) repeat-x center center;
+	text-decoration: none;
+	color: #5F5F5F;
+}
+
+.mediumLeftButton {
+	cursor: pointer;
+	height: 25px;
+	margin-right: 4px;
+	display: block;
+	float: left;
+	text-align: center;
+	background: url(../images/a_bg.gif) repeat-x center center;
+	text-decoration: none;
+	color: #5F5F5F;
+}
+
+.helpImg{
+	width: 25px;
+	height: 25px;	
+}
+
+ul{
+	list-style: none;
+	float: left;
+}
+.helpDiv{
+	display:none;	
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC  
+    "-//GetAhead Limited//DTD Direct Web Remoting 1.0//EN"  
+    "http://www.getahead.ltd.uk/dwr/dwr10.dtd">
+<dwr>
+	<allow>                       
+		<create creator="new" javascript="ServicePlanService" scope="application">
+			<param name="class" value="com.bpim.service.ServicePlanServiceImpl"/>
+			<include method="update"/>
+			<include method="insert"/>
+			<include method="deleteData"/>
+		</create>
+		<create creator="new" javascript="UserInfoService" scope="application">
+			<param name="class" value="com.bpim.service.UserInfoServiceImpl"/>
+			<include method="update"/>
+			<include method="updatePassword"/>
+			<include method="initialPassword"/>
+			<include method="insert"/>
+			<include method="deleteData"/>
+			<include method="checkUserName"/>
+			<include method="getByName"/>
+		</create>
+		<create creator="new" javascript="ExpenseRecordService" scope="application">
+			<param name="class" value="com.bpim.service.ExpenseRecordServiceImpl"/>
+			<include method="insertRepenseRecord"/>
+		</create>
+		<create creator="new" javascript="MessageService" scope="application">
+			<param name="class" value="com.bpim.service.MessageServiceImpl"/>
+			<include method="getNewMessageAcount"/>
+			<include method="deleteMessage"/>
+			<include method="deleteMessages"/>
+		</create>
+		<create creator="new" javascript="ProjectDataService" scope="application">
+			<param name="class" value="com.bpim.service.UserProjectDataOperatingServiceImpl"/>
+			<include method="deleteData"/>
+			<include method="deleteDatas"/>
+		</create>
+		<create creator="new" javascript="CustomAndGuideDataService" scope="application">
+			<param name="class" value="com.bpim.service.CustomAndGuideDataServiceImpl"/>
+			<include method="deleteCustomData"/>
+			<include method="deleteCustomDatas"/>
+		</create>
+		
+		<convert match="com.bpim.entity.ServicePlan" converter="bean"/>
+		<convert match="com.bpim.entity.UserInfo" converter="bean"/>
+	</allow>
+</dwr>

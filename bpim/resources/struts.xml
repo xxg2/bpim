@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 后缀*.action(默认值为action) -->
+	<constant name="struts.action.extension" value="do"/>
+	
+	<!-- 不支持动态方法调用 类似login!checkLogin的请求方式 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    
+    <!-- 是否为开发模式,发布版本应改为false -->
+    <constant name="struts.devMode" value="false" />
+    
+	<!-- 编码设置
+	<constant name="struts.locale" value="zh_CN" /> -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	
+	<!-- UI theme -->
+	<constant name="struts.ui.theme" value="simple" />
+	
+	<!-- 文件上传的临时目录 -->
+	<constant name="struts.multipart.saveDir" value="/tmp" />
+	
+	<!-- 设置浏览器是否缓存静态内容 -->
+	<constant name="struts.serve.static.browserCache" value="false" />
+	
+	<!-- 设置当struts.xml文件改变后，系统是否自动重新加载该文件。发布时设为false -->
+	<constant name="struts.configuration.xml.reload" value="true" />
+	
+	<!-- 指定XSLT Result是否使用样式表缓存。发布时设为false -->
+	<constant name="struts.configuration.xml.reload" value="true" />
+	
+	<include file="bpim-default-struts.xml"/>
+    <include file="bpim-struts.xml"/>
+	
+    <!-- Add packages or include other files here -->
+
+</struts>

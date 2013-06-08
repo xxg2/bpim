@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="bpim-userinfo" namespace="/admin" extends="bpim-default">
+		<action name="listnews" method="listNewsAnnounces" class="com.bpim.web.action.NewAnnounceAction">
+			<result>/admin/adminNews.jsp</result>
+			<interceptor-ref name="manager"/>
+		</action>
+		<action name="insertnews" method="insertNewsAnnounces" class="com.bpim.web.action.NewAnnounceAction">
+			<result type="redirect-action">listnews.do</result>
+			<interceptor-ref name="manager"/>
+		</action>
+		<action name="getnews" method="getDetailNewsAnnounces" class="com.bpim.web.action.NewAnnounceAction">
+			<result>/admin/newsannounce.jsp</result>
+			<interceptor-ref name="manager"/>
+		</action>						  
+		<action name="updatenews" method="updateNewsAnnounces" class="com.bpim.web.action.NewAnnounceAction">
+			<result type="redirect-action">listnews.do</result>
+			<interceptor-ref name="manager"/>
+		</action>
+		<action name="deletenews" method="deleteNewsAnnounces" class="com.bpim.web.action.NewAnnounceAction">
+			<result type="redirect-action">listnews.do</result>
+			<interceptor-ref name="manager"/>
+		</action>
+		<action name="listui" method="listUserInfo"
+			class="com.bpim.web.action.UserInfoAction">
+			<result>/admin/adminUser.jsp</result>
+			<interceptor-ref name="manager"/>
+		</action>
+		<action name="listua" method="searchUserAdvice"
+			class="com.bpim.web.action.mainPanel.UserAdviceAction">
+			<result>/admin/searchUserAdvice.jsp</result>
+			<interceptor-ref name="manager"/>
+		</action>
+		<action name="adminl" method="adminLogin"
+			class="com.bpim.web.action.UserInfoAction">
+			<result name="input">/admin/adminLogin.jsp</result>
+			<result type="redirect-action">listui.do</result>
+		</action>
+		<action name="main" class="com.bpim.web.action.ActionSupportBase">
+			<result>/admin/main.jsp</result>
+			<result name="nosession">/admin/adminLogin.jsp</result>
+		</action>
+		<action name="listsp" method="listServicePlans"
+			class="com.bpim.web.action.ServicePlanAction">
+			<result>/admin/adminScheme.jsp</result>
+			<interceptor-ref name="manager"/>
+		</action>
+		<action name="lister" method="listExpenseRecords"
+			class="com.bpim.web.action.ExpenseRecordAction">
+			<result>/admin/adminOperation.jsp</result>
+			<interceptor-ref name="manager"/>
+		</action>
+		<action name="uploadGuideData" method="uploadGuideData"
+			class="com.bpim.web.action.admin.UploadGuideDataAction">
+			<result>/admin/adminGovernmentGuidePriceImport.jsp</result>
+			<interceptor-ref name="manager"/>
+		</action>
+		<action name="deleteGuideData" method="deleteGuideData"
+			class="com.bpim.web.action.admin.DeleteGuideDataAction">
+			<result>/admin/adminDeleteGuideData.jsp</result>
+			<interceptor-ref name="manager"/>
+		</action>
+		<action name="deleteGovernmentQuota" method="deleteGovernmentQuota"
+			class="com.bpim.web.action.admin.GovernmentQuotaAction">
+			<result>/admin/governmentQuotaOperating.jsp</result>
+			<interceptor-ref name="manager"/>
+		</action>
+		<action name="importGovernmentQuota" method="importGovernmentQuota"
+			class="com.bpim.web.action.admin.GovernmentQuotaAction">
+			<result>/admin/governmentQuotaOperating.jsp</result>
+			<interceptor-ref name="manager"/>
+		</action>
+		<action name="importGovernmentFile" method="importGovernmentFile"
+			class="com.bpim.web.action.admin.GovernmentFileAction">
+			<result>/admin/adminGovernmentFileImport.jsp</result>
+			<interceptor-ref name="manager"/>
+		</action>
+		
+	</package>
+	<!-- login -->
+	<package name="bpim-login" namespace="/login" extends="bpim-default">
+		<action name="login" class="com.bpim.web.action.LoginAction">
+			<result name="input">/login/index.jsp</result>
+			<result type="redirect-action">../main/main.do</result>
+		</action>
+		<action name="logout" class="com.bpim.web.action.LogoutAction">
+			<result>/login/index.jsp</result>
+		</action>
+	</package>
+	<package name="bpim-main" namespace="/main" extends="bpim-default">
+		<action name="main" method="listNewsAnnounces" class="com.bpim.web.action.NewAnnounceAction">
+			<result>/main/main.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+		<action name="shownews" method="getDetailNewsAnnounces" class="com.bpim.web.action.NewAnnounceAction">
+			<result>/main/shownews.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+		<!-- <action name="updatenews" method="updateNewsAnnounces" class="com.bpim.web.action.NewAnnounceAction">
+			<result type="redirect-action">main/main.do</result>
+			<result name="nosession">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action> -->
+	</package>
+	<!-- login register -->
+
+	<package name="bpim-register" namespace="/login" extends="bpim-default">
+		<action name="register" method="register"
+			class="com.bpim.web.action.login.RegisterAction">
+			<result>/login/registerSucces.jsp</result>
+			<!-- <interceptor-ref name="user"/> -->
+		</action>
+	</package>
+
+	<!-- user information management -->
+	<package name="bpim-userInfoManage" namespace="/main" extends="bpim-default">
+		<action name="userInfoManage" method="getUserDetailInfo"
+			class="com.bpim.web.action.mainPanel.UserInfoManagementAction">
+			<result>/main/userInfoManage.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+
+	<package name="bpim-modifyUserInfo" namespace="/main" extends="bpim-default">
+		<action name="modifyUserInfo" method="modifyUserInfo"
+			class="com.bpim.web.action.mainPanel.UserInfoManagementAction">
+			<result>/main/userInfoManage.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+
+	<package name="bpim-changePassword" namespace="/main" extends="bpim-default">
+		<action name="changePassword" method="changePassword"
+			class="com.bpim.web.action.mainPanel.UserInfoManagementAction">
+			<result>/main/changePassword.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+
+
+
+	<!-- upload file -->
+	<package name="uploadUserProjectData" namespace="/main"
+		extends="bpim-default">
+		<action name="uploadUserProjectData" method="uploadUserProjectData"
+			class="com.bpim.web.action.mainPanel.UploadDataAction">
+			<result>/main/uploadData.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+	
+	<package name="searchUserProjectData" namespace="/main"
+		extends="bpim-default">
+		<action name="searchUserProjectData" method="searchUserProjectData"
+			class="com.bpim.web.action.mainPanel.SearchDataAction">
+			<result>/main/searchData.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+	
+	<package name="viewProjectDataDetail" namespace="/main"
+		extends="bpim-default">
+		<action name="viewProjectDataDetail" method="viewProjectDataDetail"
+			class="com.bpim.web.action.mainPanel.ProjectDataDetailAction">
+			<result>/main/projectDataDetail.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+	
+	<package name="modifyProjectData" namespace="/main"
+		extends="bpim-default">
+		<action name="modifyProjectData" method="modifyProjectData"
+			class="com.bpim.web.action.mainPanel.ModifyProjectDataAction">
+			<result>/main/projectDataDetail.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+	
+	<package name="uploadUserCustomData" namespace="/main"
+		extends="bpim-default">
+		<action name="uploadUserCustomData" method="uploadUserCustomData"
+			class="com.bpim.web.action.mainPanel.UploadUserCustomDataAction">
+			<result>/main/uploadCustomPriceData.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+	
+	<package name="searchCustomData" namespace="/main"
+		extends="bpim-default">
+		<action name="searchCustomData" method="searchCustomData"
+			class="com.bpim.web.action.mainPanel.SearchCustomDataAction">
+			<result>/main/searchCustomPriceData.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+	
+	<package name="searchGuideData" namespace="/main"
+		extends="bpim-default">
+		<action name="searchGuideData" method="searchGuideData"
+			class="com.bpim.web.action.mainPanel.SearchGuideDataAction">
+			<result>/main/searchGuidePriceData.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+	
+	<package name="searchGovernmentFile" namespace="/main"
+		extends="bpim-default">
+		<action name="searchGovernmentFile" method="searchGovernmentFile"
+			class="com.bpim.web.action.mainPanel.SearchGovernmentFileAction">
+			<result>/main/searchGovernmentFile.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+	
+	<package name="viewGovernmentFile" namespace="/main"
+		extends="bpim-default">
+		<action name="viewGovernmentFile" method="viewGovernmentFile"
+			class="com.bpim.web.action.mainPanel.SearchGovernmentFileAction">
+			<result>/main/viewGovernmentFileDetail.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+	
+	
+	
+	<package name="viewCustomDataDetail" namespace="/main"
+		extends="bpim-default">
+		<action name="viewCustomDataDetail" method="viewCustomDataDetail"
+			class="com.bpim.web.action.mainPanel.CustomDataDetailAction">
+			<result>/main/customDataDetail.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+	
+	<package name="modifyCustomData" namespace="/main"
+		extends="bpim-default">
+		<action name="modifyCustomData" method="modifyCustomData"
+			class="com.bpim.web.action.mainPanel.ModifyCustomDataAction">
+			<result>/main/customDataDetail.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+	
+	<package name="searchGovernmentQuota" namespace="/main"
+		extends="bpim-default">
+		<action name="searchGovernmentQuota" method="searchGovernmentQuota"
+			class="com.bpim.web.action.mainPanel.SearchGovernmentQuotaAction">
+			<result>/main/searchGovernmentQuota.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+	<package name="searchGovernmentInventory" namespace="/main"
+		extends="bpim-default">
+		<action name="searchGovernmentInventory" method="searchGovernmentInventory"
+			class="com.bpim.web.action.mainPanel.SearchGovernmentInventoryAction">
+			<result name="inventory2003">/main/searchGovernmentInventory_2003.jsp</result>
+			<result name="inventory2008">/main/searchGovernmentInventory_2008.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+	
+	<package name="viewGovernmentQuotaDetail" namespace="/main"
+		extends="bpim-default">
+		<action name="viewGovernmentQuotaDetail" method="viewGovernmentQuotaDetail"
+			class="com.bpim.web.action.mainPanel.GovernmentQuotaDetailAction">
+			<result>/main/viewGovernmentQuotaDetail.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+	
+	<!-- 个人分析 -->
+	<package name="personalRecordAnalyse" namespace="/main"
+		extends="bpim-default">
+		<action name="personalRecordAnalyse" method="personalRecordAnalyse"
+			class="com.bpim.web.action.mainPanel.PersonalAnalyseAction">
+			<result>/main/personalRecordAnalyse.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+	
+	<package name="personalQuotaAnalyse" namespace="/main"
+		extends="bpim-default">
+		<action name="personalQuotaAnalyse" method="personalQuotaAnalyse"
+			class="com.bpim.web.action.mainPanel.PersonalAnalyseAction">
+			<result>/main/personalQuotaAnalyse.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+
+	<!-- 消息 -->
+	<package name="bpim-messageMain" namespace="/main" extends="bpim-default">
+		<action name="messageMain" method="getAllMessage"
+			class="com.bpim.web.action.mainPanel.MessageAction">
+			<result>/main/messageMain.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+	<package name="bpim-viewMessageDetail" namespace="/main" extends="bpim-default">
+		<action name="viewMessageDetail" method="viewMessageDetail"
+			class="com.bpim.web.action.mainPanel.MessageAction">
+			<result>/main/messageDetail.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>
+	<!--  用户反馈 -->	
+	<package name="addUserAdvice" namespace="/main" extends="bpim-default">
+		<action name="addUserAdvice" method="addUserAdvice"
+			class="com.bpim.web.action.mainPanel.UserAdviceAction">
+			<result>/main/userAdvice.jsp</result>
+			<result name="nosession" type="redirect">/index.jsp</result>
+			<interceptor-ref name="user"/>
+		</action>
+	</package>	
+</struts>

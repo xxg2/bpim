@@ -1,0 +1,53 @@
+.header{
+	height:290px;
+}
+.header .logo {
+	background: url(../images/hbg_img.png) no-repeat center 24px;
+	height: 100px;
+	padding-top: 120px;
+}
+
+.introduceMainBar ul{
+	float:left;
+}
+
+.introduceMainBar ul li{
+	margin-left: 10px;
+	float:left;
+	list-style:none;
+	margin-top:10px;
+}
+
+.content .mainbar {
+	width: 330px;
+	min-height: 230px;	
+}
+
+.mainbar ul{
+	list-style:none;
+	margin-top:20px;
+	float:left;
+	width: 400px;
+}
+
+.mainbar ul li{
+	width: 100px;
+	margin-left: 10px;
+	float:left;
+	list-style:none;
+}
+
+.mainbar label{
+	width: 100px;
+}
+
+.mainbar input{
+	width: 100px;
+}
+
+
+#loginbar {
+	width: 400px;
+	padding: 0px 0px 30px 30px;	
+}
+

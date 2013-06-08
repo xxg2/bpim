@@ -1,0 +1,50 @@
+
+.header{
+	height:130px;
+}
+.header .logo {
+	background: none;
+	height: 90px;
+	float:left;
+	padding-top:30px;
+	padding-left: 40px;
+}
+
+.content{
+	min-height:460px;
+}
+.content .mainbar {
+	width: 450px;	
+}
+
+.mainbar ul{
+	margin-top:8px;
+	float:left;
+	width: 630px;
+}
+
+.mainbar ul li {
+	margin-left: 10px;
+	float:left;
+	list-style:none;
+}
+
+.mainbar ul .labelLi {
+	width: 100px;
+}
+
+.mainbar ul .inputLi{
+	width: 100px;
+}
+
+
+.mainbar label{
+	width: 100px;
+}
+
+.mainbar input{
+	width: 100px;
+}
+
+
+

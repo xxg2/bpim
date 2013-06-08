@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="bpim-default" namespace="/" extends="struts-default">
+		<!-- 拦截器声明 -->
+		<interceptors>
+			<interceptor name="login_intercept" class="com.bpim.web.interceptor.LoginInterceptor"/>
+			<interceptor name="adminlogin_intercept" class="com.bpim.web.interceptor.AdminLoginInterceptor"/>
+			<interceptor name="same_user_login_intercept" class="com.bpim.web.interceptor.SameUserLoginInterceptor"/>
+			<interceptor-stack name="user">
+				<interceptor-ref name="login_intercept"/>
+				<interceptor-ref name="same_user_login_intercept"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+			<interceptor-stack name="manager">
+				<interceptor-ref name="adminlogin_intercept"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		
+		<!-- 全局Result定义 -->
+	    <global-results>
+	    	<result name="comresult">/common/result.jsp</result>
+	    	<result name="requireddata">/common/required.jsp</result>
+	    	<result name="success">/common/success.jsp</result>
+			<result name="error">/common/error.jsp</result>
+			<result name="glberror">/common/error.jsp</result>
+			<result name="nosession">/index.jsp</result>
+			<result name="nosessionadmin">/admin/adminLogin.jsp</result>
+			<result name="norigth">/common/norigth.jsp</result>
+			<result name="nooption">/common/nooption.jsp</result>
+			<result name="noresult">/common/noresult.jsp</result>
+			<result name="notmodify">/common/notmodify.jsp</result>
+			<result name="sameuserlogin" type="redirect">/login/indexforsameuser.jsp</result>
+		</global-results>
+		
+		<!-- 发布时放开
+		<global-exception-mappings>
+			<exception-mapping result="glberror" exception="java.lang.Exception"/>
+		</global-exception-mappings> -->
+	</package>
+    
+</struts>
